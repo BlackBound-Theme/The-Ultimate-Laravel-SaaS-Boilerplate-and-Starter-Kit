@@ -1,1 +1,1 @@
-# The-Ultimate-Laravel-SaaS-Boilerplate-and-Starter-Kit
+"This is a demo. Buy the full version on Codester [https://www.codester.com/blackbound/]."
