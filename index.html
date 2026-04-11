@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SaaS Starter Kit — Live Demo</title>
+    <meta name="description" content="Experience the premium SaaS Starter Kit UI before you buy. Dark-mode dashboard, billing, admin panel, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        surface: { primary: '#0a0a0f', elevated: '#12121a', glass: 'rgba(255,255,255,0.04)', 'glass-hover': 'rgba(255,255,255,0.08)' },
+                        border: { subtle: 'rgba(255,255,255,0.06)', medium: 'rgba(255,255,255,0.10)' },
+                        accent: { neon: '#6366f1', 'neon-hover': '#818cf8', cyan: '#22d3ee', emerald: '#10b981', rose: '#f43f5e', amber: '#f59e0b' },
+                        text: { primary: '#f1f5f9', secondary: '#cbd5e1', muted: '#94a3b8', faint: '#64748b' },
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/demo.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-surface-primary text-text-primary font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 inset-x-0 z-50 bg-surface-primary/80 backdrop-blur-xl border-b border-border-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/img/logo.png" alt="Logo" class="w-8 h-8 rounded-lg object-contain gap-2">
+                <span class="text-lg font-bold">SaaS Starter</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="pricing.html" class="text-sm text-text-muted hover:text-text-primary transition-colors hidden sm:block">Pricing</a>
+                <a href="dashboard.html" class="text-sm text-text-muted hover:text-text-primary transition-colors hidden sm:block">Dashboard</a>
+                <a href="login.html" class="text-sm text-text-muted hover:text-text-primary transition-colors">Sign In</a>
+                <a href="register.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-accent-neon hover:bg-accent-neon-hover text-white font-semibold rounded-xl transition-all text-sm">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 sm:pt-40 sm:pb-28 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-neon/10 border border-accent-neon/20 text-accent-neon text-sm font-medium mb-8 demo-fade-in">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Built with Laravel 11 & Tailwind CSS
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 demo-fade-in">
+                Ship Your SaaS
+                <span class="bg-gradient-to-r from-accent-neon via-accent-cyan to-accent-emerald bg-clip-text text-transparent"> 10x Faster</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-text-muted max-w-2xl mx-auto mb-10 demo-fade-in">
+                Production-ready authentication, Stripe billing, role-based access, and a premium admin dashboard. Stop rebuilding the foundation — start building your product.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 demo-slide-up">
+                <a href="register.html" class="inline-flex items-center gap-2 px-8 py-3.5 bg-accent-neon hover:bg-accent-neon-hover text-white font-semibold rounded-xl transition-all shadow-lg shadow-accent-neon/20 hover:shadow-accent-neon/40 text-base">
+                    Start Free Trial
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+                <a href="pricing.html" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] text-text-primary font-medium border border-white/[0.06] rounded-xl transition-all text-base">View Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-20 px-4 border-t border-border-subtle">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Everything You Need to Launch</h2>
+                <p class="text-text-muted text-lg max-w-2xl mx-auto">A complete SaaS foundation with enterprise-grade security and a premium UI out of the box.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-surface-elevated/80 backdrop-blur-xl border border-border-subtle rounded-2xl p-6 hover:border-border-medium transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-accent-neon/10 flex items-center justify-center mb-4 group-hover:bg-accent-neon/20 transition-colors">
+                        <svg class="w-6 h-6 text-accent-neon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Secure Authentication</h3>
+                    <p class="text-sm text-text-muted leading-relaxed">Login, registration, and two-factor authentication with TOTP. Rate-limited and fully hardened.</p>
+                </div>
+
+                <div class="bg-surface-elevated/80 backdrop-blur-xl border border-border-subtle rounded-2xl p-6 hover:border-border-medium transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-accent-cyan/10 flex items-center justify-center mb-4 group-hover:bg-accent-cyan/20 transition-colors">
+                        <svg class="w-6 h-6 text-accent-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Stripe Billing</h3>
+                    <p class="text-sm text-text-muted leading-relaxed">Subscription management with checkout, invoicing, plan switching, and secure webhook handling.</p>
+                </div>
+
+                <div class="bg-surface-elevated/80 backdrop-blur-xl border border-border-subtle rounded-2xl p-6 hover:border-border-medium transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-accent-emerald/10 flex items-center justify-center mb-4 group-hover:bg-accent-emerald/20 transition-colors">
+                        <svg class="w-6 h-6 text-accent-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Role-Based Access</h3>
+                    <p class="text-sm text-text-muted leading-relaxed">Super admin and user roles with middleware-protected routes and granular permission checks.</p>
+                </div>
+
+                <div class="bg-surface-elevated/80 backdrop-blur-xl border border-border-subtle rounded-2xl p-6 hover:border-border-medium transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-accent-rose/10 flex items-center justify-center mb-4 group-hover:bg-accent-rose/20 transition-colors">
+                        <svg class="w-6 h-6 text-accent-rose" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Premium Dashboard</h3>
+                    <p class="text-sm text-text-muted leading-relaxed">Dark-mode-first design with glassmorphism, stat cards, data tables, and responsive layouts.</p>
+                </div>
+
+                <div class="bg-surface-elevated/80 backdrop-blur-xl border border-border-subtle rounded-2xl p-6 hover:border-border-medium transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-accent-amber/10 flex items-center justify-center mb-4 group-hover:bg-accent-amber/20 transition-colors">
+                        <svg class="w-6 h-6 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Admin Analytics</h3>
+                    <p class="text-sm text-text-muted leading-relaxed">MRR tracking, user growth, churn metrics, and system health monitoring for super admins.</p>
+                </div>
+
+                <div class="bg-surface-elevated/80 backdrop-blur-xl border border-border-subtle rounded-2xl p-6 hover:border-border-medium transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-accent-neon/10 flex items-center justify-center mb-4 group-hover:bg-accent-neon/20 transition-colors">
+                        <svg class="w-6 h-6 text-accent-neon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Clean Architecture</h3>
+                    <p class="text-sm text-text-muted leading-relaxed">Service layer, strict typing, domain-driven naming, and zero dead code. A joy to extend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Pages CTA -->
+    <section class="py-20 px-4 border-t border-border-subtle">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Explore the Demo Pages</h2>
+            <p class="text-text-muted mb-10">Click any page below to see the full UI in action.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                <a href="dashboard.html" class="bg-surface-elevated/80 border border-border-subtle rounded-xl p-4 hover:border-accent-neon/30 hover:bg-accent-neon/5 transition-all text-center group">
+                    <div class="w-10 h-10 mx-auto mb-2 rounded-lg bg-accent-neon/10 flex items-center justify-center group-hover:bg-accent-neon/20 transition-colors">
+                        <svg class="w-5 h-5 text-accent-neon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    </div>
+                    <span class="text-sm font-medium text-text-secondary">Dashboard</span>
+                </a>
+                <a href="login.html" class="bg-surface-elevated/80 border border-border-subtle rounded-xl p-4 hover:border-accent-cyan/30 hover:bg-accent-cyan/5 transition-all text-center group">
+                    <div class="w-10 h-10 mx-auto mb-2 rounded-lg bg-accent-cyan/10 flex items-center justify-center group-hover:bg-accent-cyan/20 transition-colors">
+                        <svg class="w-5 h-5 text-accent-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                    </div>
+                    <span class="text-sm font-medium text-text-secondary">Login</span>
+                </a>
+                <a href="pricing.html" class="bg-surface-elevated/80 border border-border-subtle rounded-xl p-4 hover:border-accent-emerald/30 hover:bg-accent-emerald/5 transition-all text-center group">
+                    <div class="w-10 h-10 mx-auto mb-2 rounded-lg bg-accent-emerald/10 flex items-center justify-center group-hover:bg-accent-emerald/20 transition-colors">
+                        <svg class="w-5 h-5 text-accent-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <span class="text-sm font-medium text-text-secondary">Pricing</span>
+                </a>
+                <a href="admin-users.html" class="bg-surface-elevated/80 border border-border-subtle rounded-xl p-4 hover:border-accent-amber/30 hover:bg-accent-amber/5 transition-all text-center group">
+                    <div class="w-10 h-10 mx-auto mb-2 rounded-lg bg-accent-amber/10 flex items-center justify-center group-hover:bg-accent-amber/20 transition-colors">
+                        <svg class="w-5 h-5 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <span class="text-sm font-medium text-text-secondary">Admin</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-border-subtle">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-text-faint">&copy; 2026 SaaS Starter. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <a href="pricing.html" class="text-sm text-text-muted hover:text-text-primary transition-colors">Pricing</a>
+                <a href="dashboard.html" class="text-sm text-text-muted hover:text-text-primary transition-colors">Demo</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

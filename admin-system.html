@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>System Health — SaaS Starter Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{surface:{primary:'#0a0a0f',elevated:'#12121a',glass:'rgba(255,255,255,0.04)','glass-hover':'rgba(255,255,255,0.08)'},border:{subtle:'rgba(255,255,255,0.06)',medium:'rgba(255,255,255,0.10)'},accent:{neon:'#6366f1','neon-hover':'#818cf8',cyan:'#22d3ee',emerald:'#10b981',rose:'#f43f5e',amber:'#f59e0b'},text:{primary:'#f1f5f9',secondary:'#cbd5e1',muted:'#94a3b8',faint:'#64748b'}},fontFamily:{sans:['Inter','system-ui','sans-serif']},fontSize:{'2xs':['0.625rem',{lineHeight:'0.875rem'}]}}}}</script>
+    <link rel="stylesheet" href="assets/css/demo.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="min-h-screen bg-surface-primary font-sans antialiased" x-data="{ sidebarOpen: false }">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="fixed inset-y-0 left-0 z-40 w-72 bg-surface-elevated border-r border-border-subtle flex flex-col transform transition-transform duration-300 lg:translate-x-0" :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
+            <div class="flex items-center gap-3 px-6 h-16 border-b border-border-subtle shrink-0"><img src="assets/img/logo.png" alt="Logo" class="w-8 h-8 rounded-lg object-contain"><span class="text-lg font-bold text-text-primary">SaaS Starter</span></div>
+            <nav class="flex-1 overflow-y-auto px-4 py-6 space-y-1">
+                <p class="px-4 text-2xs font-semibold uppercase tracking-widest text-text-faint mb-3">Main</p>
+                <a href="dashboard.html" class="demo-sidebar-link"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+                <a href="profile.html" class="demo-sidebar-link"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</a>
+                <a href="billing.html" class="demo-sidebar-link"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Plans & Billing</a>
+                <div class="pt-6"><p class="px-4 text-2xs font-semibold uppercase tracking-widest text-text-faint mb-3">Administration</p>
+                <a href="admin-users.html" class="demo-sidebar-link"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>User Management</a>
+                <a href="admin-system.html" class="demo-sidebar-link active"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>System Health</a></div>
+            </nav>
+            <div class="px-4 py-4 border-t border-border-subtle shrink-0"><div class="flex items-center gap-3 px-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-accent-neon/30 to-accent-cyan/30 flex items-center justify-center text-sm font-bold text-accent-neon">SA</div><div class="flex-1 min-w-0"><p class="text-sm font-medium text-text-primary truncate">Super Admin</p><p class="text-xs text-text-muted truncate">admin@example.com</p></div></div></div>
+        </aside>
+
+        <div class="flex-1 flex flex-col lg:ml-72">
+            <header class="sticky top-0 z-20 h-16 bg-surface-primary/80 backdrop-blur-xl border-b border-border-subtle flex items-center justify-between px-4 sm:px-6 lg:px-8 shrink-0">
+                <button @click="sidebarOpen=!sidebarOpen" class="lg:hidden p-2 rounded-lg hover:bg-white/[0.04] text-text-muted"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+                <h1 class="text-lg font-semibold text-text-primary hidden sm:block">System Health</h1>
+                <div class="flex-1"></div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-2xs font-medium bg-accent-amber/10 text-accent-amber border border-accent-amber/20">Admin</span>
+            </header>
+
+            <main class="flex-1 p-4 sm:p-6 lg:p-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mb-8">
+                    <div class="glass-elevated p-6"><span class="text-text-muted text-sm font-medium">Total Users</span><p class="text-3xl font-bold text-text-primary mt-2">2,847</p><p class="text-xs text-accent-emerald mt-1">+34 this week</p></div>
+                    <div class="glass-elevated p-6"><span class="text-text-muted text-sm font-medium">Active Subscriptions</span><p class="text-3xl font-bold text-text-primary mt-2">1,423</p></div>
+                    <div class="glass-elevated p-6"><span class="text-text-muted text-sm font-medium">Total Revenue</span><p class="text-3xl font-bold text-text-primary mt-2">$482,950</p></div>
+                    <div class="glass-elevated p-6"><span class="text-text-muted text-sm font-medium">Pending Jobs</span><p class="text-3xl font-bold text-text-primary mt-2">3</p><p class="text-xs text-accent-emerald mt-1">Queue healthy</p></div>
+                    <div class="glass-elevated p-6"><span class="text-text-muted text-sm font-medium">Failed Jobs</span><p class="text-3xl font-bold text-text-primary mt-2">0</p><p class="text-xs text-accent-emerald mt-1">No failures</p></div>
+                    <div class="glass-elevated p-6"><span class="text-text-muted text-sm font-medium">System Status</span><div class="flex items-center gap-2 mt-3"><div class="w-3 h-3 rounded-full bg-accent-emerald animate-pulse"></div><span class="text-lg font-semibold text-accent-emerald">Operational</span></div></div>
+                </div>
+
+                <div class="glass-elevated p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Audit Trail</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead><tr>
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-text-muted border-b border-border-subtle">Event</th>
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-text-muted border-b border-border-subtle">User</th>
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-text-muted border-b border-border-subtle">Description</th>
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-text-muted border-b border-border-subtle">IP</th>
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-text-muted border-b border-border-subtle">Time</th>
+                            </tr></thead>
+                            <tbody>
+                                <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-sm border-b border-border-subtle"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-emerald/10 text-accent-emerald border border-accent-emerald/20">login</span></td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Jane Cooper</td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Signed in successfully</td><td class="px-6 py-4 text-sm font-mono text-text-faint border-b border-border-subtle">192.168.1.42</td><td class="px-6 py-4 text-sm text-text-secondary whitespace-nowrap border-b border-border-subtle">2 minutes ago</td></tr>
+                                <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-sm border-b border-border-subtle"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">subscription.created</span></td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Alex Morgan</td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Subscribed to Enterprise (monthly)</td><td class="px-6 py-4 text-sm font-mono text-text-faint border-b border-border-subtle">10.0.0.15</td><td class="px-6 py-4 text-sm text-text-secondary whitespace-nowrap border-b border-border-subtle">15 minutes ago</td></tr>
+                                <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-sm border-b border-border-subtle"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-emerald/10 text-accent-emerald border border-accent-emerald/20">payment.succeeded</span></td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Alex Morgan</td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Payment received for Enterprise</td><td class="px-6 py-4 text-sm font-mono text-text-faint border-b border-border-subtle">10.0.0.15</td><td class="px-6 py-4 text-sm text-text-secondary whitespace-nowrap border-b border-border-subtle">15 minutes ago</td></tr>
+                                <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-sm border-b border-border-subtle"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-rose/10 text-accent-rose border border-accent-rose/20">subscription.canceled</span></td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Mike Johnson</td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Subscription to Starter has expired</td><td class="px-6 py-4 text-sm font-mono text-text-faint border-b border-border-subtle">172.16.0.8</td><td class="px-6 py-4 text-sm text-text-secondary whitespace-nowrap border-b border-border-subtle">1 hour ago</td></tr>
+                                <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-sm border-b border-border-subtle"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-amber/10 text-accent-amber border border-accent-amber/20">role.changed</span></td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Super Admin</td><td class="px-6 py-4 text-sm text-text-secondary border-b border-border-subtle">Changed Sarah's role from user to super_admin</td><td class="px-6 py-4 text-sm font-mono text-text-faint border-b border-border-subtle">127.0.0.1</td><td class="px-6 py-4 text-sm text-text-secondary whitespace-nowrap border-b border-border-subtle">2 hours ago</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div x-show="sidebarOpen" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden" @click="sidebarOpen=false"></div>
+</body>
+</html>
